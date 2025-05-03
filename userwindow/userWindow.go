@@ -22,5 +22,6 @@ func GetUserInput(path1, path2 string, userTask int) int {
 	fmt.Print(path2)
 	fmt.Scan(&userTask)
 	fmt.Println("")
+	fmt.Println("Assalomu alaykum")
 	return userTask
 }
