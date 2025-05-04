@@ -5,6 +5,8 @@ import (
 	"fmt"
 	"os"
 	"time"
+
+	"example.com/report_finance/userwindow"
 )
 
 type FinaceReporter struct {
@@ -23,13 +25,7 @@ func UseFinanceReporter(income, outcome float64) *FinaceReporter {
 }
 
 func GetUserIncomeOutcome() *FinaceReporter {
-	var income float64
-	fmt.Print("Kirim: ")
-	fmt.Scan(&income)
-
-	var outcome float64
-	fmt.Print("Chiqim: ")
-	fmt.Scan(&outcome)
+	income, outcome := userwindow.GetUserInput2()
 
 	myFinanceReporter := UseFinanceReporter(income, outcome)
 	return myFinanceReporter
@@ -64,24 +60,18 @@ func WriteToFile() {
 	}
 }
 
-func OutputJsonData(){
+func GetJsonData() []FinaceReporter{
 	data, err := os.ReadFile("finances.json")
 	if err != nil{
 		fmt.Println("Failed to read file!")
-		return
+		return nil
 	}
 
 	var myStruct []FinaceReporter
 	err = json.Unmarshal(data, &myStruct)
 	if err != nil{
 		fmt.Println("Failed to unmarshal file!")
-		return
+		return nil
 	}
-
-	for i, entry := range myStruct {
-		fmt.Printf("Entry %d:\n", i+1)
-		fmt.Printf("  Income: %.2f\n", entry.Income)
-		fmt.Printf("  Outcome: %.2f\n", entry.Outcome)
-		fmt.Printf("  Date: %s\n", entry.CreatedAt.Format("02/01/2006"))
-	}
+	return myStruct
 }

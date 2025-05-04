@@ -8,5 +8,10 @@
   "income_data": 600.45,
   "outcome_data": 125.95,
   "created_at": "2025-05-01T21:28:22.199027+05:00"
+ },
+ {
+  "income_data": 1000,
+  "outcome_data": 345,
+  "created_at": "2025-05-04T09:08:11.3081479+05:00"
  }
 ]

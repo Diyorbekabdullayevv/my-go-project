@@ -25,3 +25,15 @@ func GetUserInput(path1, path2 string, userTask int) int {
 	fmt.Println("Assalomu alaykum")
 	return userTask
 }
+
+func GetUserInput2() (float64, float64){
+	var income float64
+	fmt.Print("Kirim: ")
+	fmt.Scan(&income)
+
+	var outcome float64
+	fmt.Print("Chiqim: ")
+	fmt.Scan(&outcome)
+
+	return income, outcome
+}
